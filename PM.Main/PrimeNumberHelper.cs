@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace PM.Algorithms
 {
@@ -39,7 +38,7 @@ namespace PM.Algorithms
             return result;
         }
 
-        public static bool isPrimeNumber(int number)
+        public static bool IsPrimeNumber(int number)
         {
             if(number == 1)
             {

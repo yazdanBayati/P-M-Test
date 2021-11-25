@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PM.Algorithms;
 
 
-namespace PM.Test
+namespace PM.Alogorithms.Test
 {
     [TestClass]
     public class QuestionMarkerTest

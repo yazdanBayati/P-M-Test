@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PM.Algorithms;
 
-namespace PM.Test
+namespace PM.Alogorithms.Test
 {
     [TestClass]
     public class PrimeNumbersTest
@@ -35,7 +35,7 @@ namespace PM.Test
         [TestMethod]
         public void TestIsPrimeNumber6()
         {
-            var res = PrimeNumberHelper.isPrimeNumber(6);
+            var res = PrimeNumberHelper.IsPrimeNumber(6);
 
             Assert.AreEqual(res, false);
         }
@@ -43,7 +43,7 @@ namespace PM.Test
         [TestMethod]
         public void TestIsPrimeNumber23()
         {
-            var res = PrimeNumberHelper.isPrimeNumber(23);
+            var res = PrimeNumberHelper.IsPrimeNumber(23);
 
             Assert.AreEqual(res, true);
         }

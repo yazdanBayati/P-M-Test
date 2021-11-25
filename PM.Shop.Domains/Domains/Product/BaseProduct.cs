@@ -10,36 +10,38 @@ namespace PM.Shop.Core.Domains.Product
 {
     public abstract class BaseProduct
     {
-        public BaseProduct()
+        public BaseProduct(string name, int articleNumber, List<decimal> prices, List<string> pictures)
         {
-            this.Prices = new List<decimal>();
-            this.Pictures = new List<string>();
-            this.Seller = new Seller();
-            this.Subscibers = new List<CustomerProduct>();
+            this.Validate(pictures);
+            this.Name = name;
+            this.ArticleNumber = articleNumber;
+            this.Prices = prices;
+            this.Pictures = pictures;
+            this.Subscibers = new List<string>();
         }
 
-       
-        
+        public BaseProduct(string name, int articleNumber)
+        {
+            this.Name = name;
+            this.ArticleNumber = articleNumber;
+            this.Subscibers = new List<string>();
+            this.Pictures= new List<string>();
+            this.Prices = new List<decimal>();
+        }
+
         public string Name { get; set; }
         public int ArticleNumber { get; set; }
         public List<decimal> Prices { get; set; }
         public List<string> Pictures { get; set; }
 
-        public List<CustomerProduct> Subscibers { get; set; }
+        public List<string> Subscibers { get; set; }
 
-        public Seller Seller { get; set; }
-
-        protected void InitBase(string name, int articleNumber, List<decimal> prices, List<string> pictures, Seller seller)
+        private void Validate(List<string> pictures)
         {
             if (pictures.Count > 5)
             {
                 throw new InvalidItemException("each product can have max 5 pic");
             }
-            this.Name = name;
-            this.ArticleNumber = articleNumber;
-            this.Prices = prices;
-            this.Seller = seller;
-            this.Pictures = pictures;
         }
 
         public void CheckPrice(decimal price)
@@ -55,7 +57,7 @@ namespace PM.Shop.Core.Domains.Product
         {
             foreach (var subscriber in this.Subscibers)
             {
-                Console.WriteLine($"Send Email to {subscriber.SubscriberEmailAddress}");
+                Console.WriteLine($"Send Email to {subscriber}");
             }
         }
 
@@ -77,6 +79,8 @@ namespace PM.Shop.Core.Domains.Product
                 throw new InvalidItemException("each product can have max 5 pic");
             }
         }
+
+     
 
        
     }

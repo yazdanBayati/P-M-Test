@@ -7,6 +7,6 @@ namespace PM.Shop.Core.Repositories
 {
     public interface IProductRepository
     {
-        public BaseProduct LoadProduct(string productId);
+        public BaseProduct LoadProduct(string productName);
     }
 }

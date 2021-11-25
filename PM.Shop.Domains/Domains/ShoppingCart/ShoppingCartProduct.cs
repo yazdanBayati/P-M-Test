@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
-namespace PM.Shop.Core.Domains.ShoppingCart
+namespace PM.Shop.Core.Domains
 {
    public  class ShoppingCartProduct
     {
-        public string ProductName { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-
-        public void Fill(string name, decimal price, int quantity)
+        public ShoppingCartProduct(string name, decimal price, int quantity, ProductType type)
         {
             this.ProductName = name;
             this.Price = price;
             this.Quantity = quantity;
+            this.Type = type;
+        }
+        public string ProductName { get; private set; }
+        public decimal Price { get; private set; }
+        public int Quantity { get; private set; }
+
+        public ProductType Type { get; private set; }
+
+        public enum ProductType
+        {
+            Normal,
+            Digital
         }
     }
 }

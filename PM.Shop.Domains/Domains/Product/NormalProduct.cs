@@ -8,16 +8,16 @@ namespace PM.Shop.Core.Domains.Product
 {
     public class NormalProduct : BaseProduct
     {
-        public void Init(string name, int articleNumber, List<decimal> prices, List<string> pictures, Seller seller, int stock)
+        public NormalProduct(string name, int articleNumber, List<decimal> prices, List<string> pictures, int stock):
+            base(name, articleNumber, prices, pictures)
         {
-            this.InitBase(name, articleNumber, prices, pictures, seller);
             this.Stock = stock;
-            this.State = StateEnum.Availabe;
         }
 
-        public int Stock { get; set; }
+        public int Stock { get; private set; }
 
-        public StateEnum State { get; set; }
+        public StateEnum State { get; private set; }
+
 
         public void CheckAvliable(int quantity)
         {
@@ -27,7 +27,7 @@ namespace PM.Shop.Core.Domains.Product
             }
         }
 
-        public void DeductStock(int quantity)
+        public void DecreaseStock(int quantity)
         {
             this.Stock -= quantity;
             if(this.Stock == 0)
@@ -36,7 +36,22 @@ namespace PM.Shop.Core.Domains.Product
             }
         }
 
-        public void BuyBack(int quantity)
+        public void CheckState()
+        {
+            if(this.State == StateEnum.TemporarySoldout)
+            {
+                this.State = StateEnum.Soldout;
+                this.SendEmailToSeller();
+            }
+        }
+
+        private void SendEmailToSeller()
+        {
+            Console.WriteLine("send email to seller");
+        }
+            
+
+        public void IncreaseStock(int quantity)
         {
             this.Stock += quantity;
             if (this.State == StateEnum.TemporarySoldout)

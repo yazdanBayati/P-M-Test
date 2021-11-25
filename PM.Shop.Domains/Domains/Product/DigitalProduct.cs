@@ -7,17 +7,28 @@ namespace PM.Shop.Core.Domains.Product
 {
     public class DigitalProduct : BaseProduct
     {
-        public ProvideType Provide { get; set; }
-        public void Init(string name, int articleNumber, List<decimal> prices, List<string> pictures, Seller seller, )
+        public DigitalProduct(string name, int articleNumber, List<decimal> prices, List<string> pictures, ProvideType provideBy):
+            base(name, articleNumber, prices, pictures)
         {
-            this.InitBase(name, articleNumber, prices, pictures, seller);
-            this.
+            this.ProvideBy = provideBy;
         }
+        public ProvideType ProvideBy { get; private set; }
 
+        public void SendProduct()
+        {
+            if(this.ProvideBy == ProvideType.Email)
+            {
+                Console.WriteLine("Send Email");
+            }
+            else
+            {
+
+            }
+        }
         public enum ProvideType
         {
-            ByEmail,
-            ByLink
+            Email,
+            Link
         }
         
     }
