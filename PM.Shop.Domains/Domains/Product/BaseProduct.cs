@@ -29,12 +29,12 @@ namespace PM.Shop.Core.Domains.Product
             this.Prices = new List<decimal>();
         }
 
-        public string Name { get; set; }
-        public int ArticleNumber { get; set; }
-        public List<decimal> Prices { get; set; }
-        public List<string> Pictures { get; set; }
+        public string Name { get; private set; }
+        public int ArticleNumber { get; private set; }
+        public List<decimal> Prices { get; private set; }
+        public List<string> Pictures { get; private set; }
 
-        public List<string> Subscibers { get; set; }
+        protected List<string> Subscibers { get; private set; }
 
         private void Validate(List<string> pictures)
         {
@@ -79,9 +79,5 @@ namespace PM.Shop.Core.Domains.Product
                 throw new InvalidItemException("each product can have max 5 pic");
             }
         }
-
-     
-
-       
     }
 }

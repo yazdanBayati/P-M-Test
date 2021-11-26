@@ -11,6 +11,7 @@ namespace PM.Shop.Core.Domains.Product
         public NormalProduct(string name, int articleNumber, List<decimal> prices, List<string> pictures, int stock):
             base(name, articleNumber, prices, pictures)
         {
+            // validate
             this.Stock = stock;
         }
 

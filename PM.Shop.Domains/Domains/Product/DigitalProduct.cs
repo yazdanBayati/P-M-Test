@@ -22,7 +22,7 @@ namespace PM.Shop.Core.Domains.Product
             }
             else
             {
-
+                Console.WriteLine("Generate Link");
             }
         }
         public enum ProvideType

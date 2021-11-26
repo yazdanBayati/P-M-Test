@@ -14,6 +14,7 @@ namespace PM.Shop.Core.Domains.User
         public Customer(IProductRepository productRepository, string userName, string emailAddress, ShoppingCart shoppingCart, string address, List<string> subscribedProducts)
             :base(userName, emailAddress)
         {
+            // validate
             this.ShoppingCart = shoppingCart;
             this.SubscribedProducts = subscribedProducts;
             this.Address = address;
@@ -40,12 +41,12 @@ namespace PM.Shop.Core.Domains.User
             return this.ShoppingCart.Products;
         }
 
-        public void AddNormalProductShoppingCart(NormalProduct product, decimal price, int quantity)
+        public void AddNormalProductToShoppingCart(NormalProduct product, decimal price, int quantity)
         {
             this.ShoppingCart.AddNoramlProduct(product, price, quantity);
         }
 
-        public void AddDigitalProductShoppingCart(DigitalProduct product, decimal price, int quantity)
+        public void AddDigitalProductToShoppingCart(DigitalProduct product, decimal price, int quantity)
         {
             this.ShoppingCart.AddDigitalProduct(product, price, quantity);
         }

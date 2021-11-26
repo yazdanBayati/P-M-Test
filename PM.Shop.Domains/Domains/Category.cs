@@ -7,15 +7,15 @@ namespace PM.Shop.Core.Domains
 {
     public class Category
     {
-        public Category(string id, string parnetId, string name,  List<BaseProduct> proucts)
+        public Category(string id, string parnet, string name,  List<BaseProduct> proucts)
         {
             this.Id = id;
-            this.ParentId = parnetId;
+            this.Parent = parnet;
             this.Name = name;
             this.Products = proucts;
         }
         public string Id { get; set; }
-        public string ParentId { get; set; }
+        public string Parent { get; set; }
         public string Name { get; set; }
        
         public List<BaseProduct> Products { get; private set; }

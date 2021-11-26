@@ -30,5 +30,11 @@ namespace PM.Shop.Core.Domains.User
             var product = this.Products.FirstOrDefault(x => x.Name == productName);
             product.AddPrice(newPrice);
         }
+
+        public void AddPictureToProduct(string productName, string url)
+        {
+            var product = this.Products.FirstOrDefault(x => x.Name == productName);
+            product.AddPictures(url);
+        }
     }
 }
